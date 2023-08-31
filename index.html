@@ -2,11 +2,27 @@
 <html>
 <head>
     <title>Google OAuth Example</title>
-    <script src="https://apis.google.com/js/api:client.js" async defer></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
-    <button id="google-signin-button">Sign in with Google</button>
+    <!-- <button id="google-signin-button">Sign in with Google</button> -->
+    <div id="g_id_onload"
+     data-client_id="202005014114-t783346os0pfpsgbp8pgfg4g49sm8ga4.apps.googleusercontent.com"
+     data-context="signin"
+     data-ux_mode="popup"
+     data-callback="handleCredentialResponse"
+     data-nonce=""
+     data-auto_prompt="false">
+</div>
 
+<div class="g_id_signin"
+     data-type="standard"
+     data-shape="rectangular"
+     data-theme="filled_blue"
+     data-text="signin_with"
+     data-size="large"
+     data-logo_alignment="left">
+</div>
     <script>
         function handleCredentialResponse(response) {
             const credential = response.credential;
@@ -14,15 +30,15 @@
             console.log("User Name:", username);
         }
 
-        function handleSignIn() {
-            google.accounts.id.initialize({
-                client_id: '202005014114-t783346os0pfpsgbp8pgfg4g49sm8ga4.apps.googleusercontent.com',
-                callback: handleCredentialResponse
-            });
-            google.accounts.id.prompt();
-        }
+        // function handleSignIn() {
+        //     google.accounts.id.initialize({
+        //         client_id: '202005014114-t783346os0pfpsgbp8pgfg4g49sm8ga4.apps.googleusercontent.com',
+        //         callback: handleCredentialResponse
+        //     });
+        //     google.accounts.id.prompt();
+        // }
 
-        document.getElementById("google-signin-button").addEventListener("click", handleSignIn);
+        // document.getElementById("google-signin-button").addEventListener("click", handleSignIn);
     </script>
 </body>
 </html>
