@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google OAuth Example</title>
+    <script src="https://apis.google.com/js/api:client.js" async defer></script>
+</head>
+<body>
+    <button id="google-signin-button">Sign in with Google</button>
+
+    <script>
+        function handleCredentialResponse(response) {
+            const credential = response.credential;
+            const username = credential.displayName;
+            console.log("User Name:", username);
+        }
+
+        function handleSignIn() {
+            google.accounts.id.initialize({
+                client_id: '202005014114-t783346os0pfpsgbp8pgfg4g49sm8ga4.apps.googleusercontent.com',
+                callback: handleCredentialResponse
+            });
+            google.accounts.id.prompt();
+        }
+
+        document.getElementById("google-signin-button").addEventListener("click", handleSignIn);
+    </script>
+</body>
+</html>
